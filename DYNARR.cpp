@@ -1,6 +1,6 @@
 //***************************************
 // SOURCE FILE (DYNARR.cpp)
-// Authors: Adi,AJ, Betsy, Catherine 
+// Authors: Adi, AJ, Betsy, Catherine 
 //***************************************
 
 #include "DYNARR.h"
