@@ -8,7 +8,6 @@
 #include <iostream>
 #include <cctype>
 void displayMenu();
-int validInt();
 using namespace std;
 
 string const SEP = "===========================================";
