@@ -124,12 +124,10 @@ dynArr::dynArr(int r, int c): row(r), col(c), cursorRow(-1), cursorCol(-1){ // p
 //***************************************
 bool dynArr::insert(int userVal, int r, int c) { // Insert
 	if (r < 0 || r >= row || c < 0 || c >= col) { // check if input is valid
-		cout << "Not Done" << endl; // item is not inserted
 		return false;
 	}
 
 	value[r][c] = userVal; // set matrix
-	cout << "Done" << endl << endl; ///item inserted
 	return true;
 }
 
@@ -142,14 +140,16 @@ bool dynArr::insert(int userVal, int r, int c) { // Insert
 // Return: bool- true if item is removed, false if not removed
 //***************************************
 bool dynArr::remove(int r, int c) { // Remove
+	bool retVal = false;
 	if (r < 0 || r >= row || c < 0 || c >= col) { 
-		cout << "Invalid location" << endl; 
-		return false;
+		//just validating the list size
 	}
-	int removed = value[r][c];
-	value[r][c] = 0;
-	cout << "Removed value: " << removed << endl; // item removed at [location]
-	return true;
+	else {
+		int removed = value[r][c];
+		value[r][c] = 0;
+		retVal = true;
+	}
+	return retVal;
 }
 
 //***************************************
@@ -162,16 +162,14 @@ bool dynArr::remove(int r, int c) { // Remove
 // Return: bool- true if value is found, false if not found
 //***************************************
 bool dynArr::search(int const userVal) {
+	bool retVal = false;
 	for (int j = 0; j < col; j++) {
 		for (int i = 0; i < row; i++) {
-			if (value[i][j] == userVal) {
-				cout << "Value found at [" << i << "," << j << "]" << endl;
-				return true;
-			}
+			if (value[i][j] == userVal) 
+				retVal= true;
 		}
 	}
-	cout << "Value not found" << endl;
-	return false;
+	return retVal;
 }
 
 //***************************************

@@ -21,26 +21,27 @@ int main() {
 	cout << "Your Matrix Values:" << endl;
 
 	cout << "Enter row size: ";
-	row = validInt();
+	cin >> row;
 
 	cout << "Enter column size: ";
-	col = validInt();
+	cin >> col;
 	
 	cout << endl << endl;
 
 	while (row <= 0 || col <= 0) {
 		cout << "Invalid size. Enter positive values." << endl;
 		cout << "Enter row size: ";
-		row = validInt();
+		cin >> row;
 
 		cout << "Enter column size: ";
-		col = validInt();
+		cin >> col;
 	}
 
 	dynArr d(row, col);
 	char userChoice, loopChoice;
-	displayMenu();
+	
 	do {
+		displayMenu();
 		cout << "Enter your choice: ";
 		cin >> userChoice;
 
@@ -48,30 +49,30 @@ int main() {
 
 			case '+': // INSERT
 				cout << "Enter value: ";
-				userVal = validInt();
+				cin >> userVal;
 
 				cout << "Enter row: ";
-				userRow = validInt();
+				cin >> userRow ;
 
 				cout << "Enter column: ";
-				userCol = validInt();
+				cin >> userCol;
 
 				d.insert(userVal, userRow, userCol);
 				break;
 
 			case '-': // REMOVE
 				cout << "Enter row: ";
-				userRow = validInt();
+				cin >> userRow;
 
 				cout << "Enter column: ";
-				userCol = validInt();
+				cin >> userCol;
 
 				d.remove(userRow,userCol);
 				break;
 
 			case '?': // SEARCH
 				cout << "Enter value to search: ";
-				userVal = validInt();
+				cin >> userVal;
 				d.search(userVal);
 				break;
 
@@ -90,11 +91,11 @@ int main() {
 			default:
 				cout << "Invalid selection" << endl;
 			}
-		cout << "Make another selection? (y/n): ";
-		cin >> loopChoice; 
+
+		//cin >> loopChoice; 
 		cout << endl;
 
-	} while (toupper(loopChoice) == 'Y');
+	} while (userChoice != 'Q');
 	
 	cout << "Exiting program" << endl;
 	return 0;
@@ -127,14 +128,14 @@ void displayMenu() {
 // Outgoing: None
 // Return: val
 //***************************************
-int validInt() {
-	int val;
-
-	while (!(cin >> val)) {
-		cin.clear();
-		cin.ignore(9999, '\n');
-		cout << "Invalid input. Enter an integer: ";
-	}
-	cin.ignore(9999, '\n');
-	return val;
-}
+//int validInt() {
+//	int val;
+//
+//	while (!(cin >> val)) {
+//		cin.clear();
+//		cin.ignore(9999, '\n');
+//		cout << "Invalid input. Enter an integer: ";
+//	}
+//	cin.ignore(9999, '\n');
+//	return val;
+//}
