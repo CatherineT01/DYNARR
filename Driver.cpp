@@ -119,23 +119,3 @@ void displayMenu() {
 	cout << "Enter 'C' to display column major" << endl;
 	cout << "Enter 'Q' to quit" << endl; cout << SEP << endl;
 }
-
-//***************************************
-// Author: Catherine
-// Name: validInt()
-// Description: This function validates the users inputs
-// Incoming: None
-// Outgoing: None
-// Return: val
-//***************************************
-//int validInt() {
-//	int val;
-//
-//	while (!(cin >> val)) {
-//		cin.clear();
-//		cin.ignore(9999, '\n');
-//		cout << "Invalid input. Enter an integer: ";
-//	}
-//	cin.ignore(9999, '\n');
-//	return val;
-//}
