@@ -123,12 +123,15 @@ dynArr::dynArr(int r, int c): row(r), col(c), cursorRow(-1), cursorCol(-1){ // p
 // Return: bool- true if item is inserted, false if not inserted
 //***************************************
 bool dynArr::insert(int userVal, int r, int c) { // Insert
-	if (r < 0 || r >= row || c < 0 || c >= col) { // check if input is valid
-		return false;
+	if (r <= row && c <= col) {
+		if (r < 0 || r >= row || c < 0 || c >= col) { // check if input is valid
+			return false;
+		}
+		value[r][c] = userVal; // set matrix
+		return true;
 	}
-
-	value[r][c] = userVal; // set matrix
-	return true;
+	else
+		cout << "Table is too small to insert into " << r << " rows and/or " << c << " columns.";
 }
 
 //***************************************
@@ -141,14 +144,18 @@ bool dynArr::insert(int userVal, int r, int c) { // Insert
 //***************************************
 bool dynArr::remove(int r, int c) { // Remove
 	bool retVal = false;
-	if (r < 0 || r >= row || c < 0 || c >= col) { 
-		//just validating the list size
+	if (r <= row && c <= col) {
+		if (r < 0 || r >= row || c < 0 || c >= col) {
+			//just validating the list size
+		}
+		else {
+			int removed = value[r][c];
+			value[r][c] = 0;
+			retVal = true;
+		}
 	}
-	else {
-		int removed = value[r][c];
-		value[r][c] = 0;
-		retVal = true;
-	}
+	else
+		cout << "Table is too small to remove from " << r << " rows and/or " << c << " columns.";
 	return retVal;
 }
 
